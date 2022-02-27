@@ -1,0 +1,31 @@
+* 10 unique cases and 1000 unique patient ids
+* Location is the location of the occurence inside string(treat with indices)
+* Can be a variable amount of features numbers for different cases(13 for case 0, but 16 for case 2)
+    - 143 unique features total
+* 3rd digit(leftmost) refers to the case# whereas the last 2 refer to feature num
+* Abbreviations
+    HPI: History of Present Illness
+    PMHx: Past Medical History
+        - Can have the x omitted
+    Rx: Heading of a prescription
+    FHx: Family History
+    SHx: Social History
+    PHI: Protected Health Information
+
+
+
+GOAL: Query patient notes with a feature and return locations with the closest matches
+    - Get an idea of what train.csv annotates and its importance
+
+* Features.csv
+    - Split by OR
+    - Usually when abbreviations, the OR is the full abbreviated word
+    - Possible to make another column for "abbreivations-exist"
+    - Synonyms of the features or similar words should match???
+    - Lots of variation for a "simple" feature
+        - 801: son died 3 weeks ago => not based on time, merely on if son died
+        - 112: female/f => context behind it usually has age preceding
+
+* patient_notes.csv
+    - Capital letters sometimes important(for abbreivations)
+    - Many, MANY abbreviations that will be tough to transform them all
